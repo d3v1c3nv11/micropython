@@ -12,7 +12,6 @@
 
 #define MICROPY_HW_NUM_PIN_IRQS (2 * 32)
 
-#define MICROPY_HW_FLASH_DQS kFlexSPIReadSampleClk_LoopbackInternally
 
 // Define mapping logical UART # to hardware UART #
 // LPUART1 on RX/TX    -> 1
