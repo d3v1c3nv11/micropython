@@ -14,6 +14,10 @@
 #define FSL_COMPONENT_ID "platform.drivers.xip_board"
 #endif
 
+#ifndef MICROPY_HW_FLASH_DQS
+#define MICROPY_HW_FLASH_DQS kFlexSPIReadSampleClk_LoopbackFromDqsPad
+#endif
+
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -29,7 +33,7 @@ const flexspi_nor_config_t qspiflash_config = {
     {
         .tag = FLEXSPI_CFG_BLK_TAG,
         .version = FLEXSPI_CFG_BLK_VERSION,
-        .readSampleClkSrc = kFlexSPIReadSampleClk_LoopbackFromDqsPad,
+        .readSampleClkSrc = MICROPY_HW_FLASH_DQS,
         .csHoldTime = 3u,
         .csSetupTime = 3u,
         .busyOffset = FLASH_BUSY_STATUS_OFFSET,         // Status bit 0 indicates busy.
